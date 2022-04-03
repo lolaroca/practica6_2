@@ -1,6 +1,6 @@
 package com.icai.practicas.model;
 
-import org.assertj.core.api.Assert;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 //import org.junit.jupiter.api.*;
@@ -10,21 +10,19 @@ public class TelefonoTest {
     @Test
     public void testTelefono(){
 
-        Telefono tel1 = new Telefono("646513445");
-        Telefono tel2 = new Telefono("+34646513445");
-        Telefono tel3 = new Telefono("914484126");
-        Telefono tel4 = new Telefono("+48914484126");
-        Telefono tel5 = new Telefono("12345678A");
-        Telefono tel6 = new Telefono("112233445566778899");
+        //válidos
+        Telefono t1 = new Telefono ("608475987");
+        assertEquals(true, t1.validar());
 
+        Telefono t2 = new Telefono ("608475986");
+        assertEquals(true, t2.validar());
 
-       /* //Comprobamos si se complen las especificaciones
-        Assert.assertEquals(true, tel1.validar());
-        Assert.assertEquals(true, tel2.validar());
-        Assert.assertEquals(true, tel3.validar());
-        Assert.assertEquals(true, tel4.validar());
-        Assert.assertEquals(false, tel5.validar());
-        Assert.assertEquals(false, tel6.validar());*/
+        //no válidos
+        Telefono t3 = new Telefono ("768654738");
+        assertEquals(false, t3.validar());
+
+        Telefono t4 = new Telefono ("112233445566778899");
+        assertEquals(false, t4.validar());
     
     }
 }

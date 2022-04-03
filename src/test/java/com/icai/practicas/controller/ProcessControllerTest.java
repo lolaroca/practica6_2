@@ -81,7 +81,7 @@ public class ProcessControllerTest {
             MultiValueMap<String, String> datosCorrectos = new LinkedMultiValueMap<>();
             datosCorrectos.add("fullName", "Lola Roca");
             datosCorrectos.add("dni", "06598111D");
-            datosCorrectos.add("telefono", "608475988");
+            datosCorrectos.add("telefono", "608475987");
             
             //Request
             HttpHeaders headers = new HttpHeaders();
@@ -91,7 +91,7 @@ public class ProcessControllerTest {
              //Response
             ResponseEntity<String> resultCorrecto = this.restTemplate.postForEntity(address, requestCorrecto, String.class);
             
-            then(resultCorrecto.getBody()).contains("Muchas gracias por enviar los datos");
+            then(resultCorrecto.getBody()).contains("Hemos recibido sus datos");
 
             then(resultCorrecto.getStatusCode()).isEqualTo(HttpStatus.OK);
             
@@ -126,7 +126,7 @@ public class ProcessControllerTest {
             MultiValueMap<String, String> datosNumeroIncorrecto = new LinkedMultiValueMap<>();
             datosNumeroIncorrecto.add("fullName", "Lola Roca");
             datosNumeroIncorrecto.add("dni", "06598111D");
-            datosNumeroIncorrecto.add("telefono", "111");
+            datosNumeroIncorrecto.add("telefono", "889965439");
 
             //Request
             HttpHeaders headers = new HttpHeaders();
